@@ -18,9 +18,7 @@ body{
     overflow-x:hidden;
 }
 
-/* ===================== */
-/* NAV APPLE */
-/* ===================== */
+/* NAV */
 #navbar{
     position:fixed;
     width:100%;
@@ -47,7 +45,6 @@ body{
 
 .logo{
     width:110px;
-    filter:brightness(1.4);
 }
 
 .menu{
@@ -66,33 +63,11 @@ body{
     cursor:pointer;
 }
 
-.menu li i{
-    opacity:0.7;
-    transition:0.3s;
-}
-
-.menu li span::after{
-    content:"";
-    position:absolute;
-    width:0%;
-    height:1px;
-    background:#EADDCB;
-    bottom:-5px;
-    left:0;
-    transition:0.3s;
-}
-
 .menu li:hover{
     color:#EADDCB;
 }
 
-.menu li:hover i{
-    transform:translateY(-2px);
-}
-
-/* ===================== */
 /* HERO */
-/* ===================== */
 .hero{
     height:100vh;
     display:flex;
@@ -222,16 +197,6 @@ section{
     margin-top:20px;
 }
 
-/* BOTÓN */
-button{
-    margin-top:20px;
-    padding:12px 25px;
-    background:#5E1214;
-    color:white;
-    border:none;
-    border-radius:20px;
-}
-
 /* WHATSAPP */
 .whatsapp{
     position:fixed;
@@ -249,17 +214,15 @@ button{
 
 <nav id="navbar">
 <div class="nav-container">
-
 <img src="logo.png" class="logo">
 
 <ul class="menu">
-<li onclick="go('inicio')"><i class="fa-solid fa-house"></i><span>Inicio</span></li>
-<li onclick="go('servicios')"><i class="fa-solid fa-briefcase"></i><span>Servicios</span></li>
-<li onclick="go('portafolio')"><i class="fa-solid fa-image"></i><span>Portafolio</span></li>
-<li onclick="go('paquetes')"><i class="fa-solid fa-gem"></i><span>Paquetes</span></li>
-<li onclick="go('equipo')"><i class="fa-solid fa-user-group"></i><span>Equipo</span></li>
+<li onclick="go('inicio')"><i class="fa-solid fa-house"></i> Inicio</li>
+<li onclick="go('servicios')"><i class="fa-solid fa-briefcase"></i> Servicios</li>
+<li onclick="go('portafolio')"><i class="fa-solid fa-image"></i> Portafolio</li>
+<li onclick="go('paquetes')"><i class="fa-solid fa-gem"></i> Paquetes</li>
+<li onclick="go('equipo')"><i class="fa-solid fa-user-group"></i> Equipo</li>
 </ul>
-
 </div>
 </nav>
 
@@ -307,44 +270,41 @@ button{
 </div>
 </section>
 
-<!-- EQUIPO -->
-<section class="fade" id="equipo">
-    <h2>Nuestro equipo</h2>
+<section id="equipo">
+<div class="container">
+<h2 class="title">Nuestro equipo</h2>
+<div class="team">
+<div><h3>María Fernanda Torres Barceinas</h3><p>Community Manager</p></div>
+<div><h3>Alana Cristina Sosa Juárez</h3><p>Content Manager</p></div>
+</div>
 
-    <div class="team">
-        <div class="member">
-            <h3>María Fernanda Torres Barceinas</h3>
-            <p>Community Manager</p>
-        </div>
-
-        <div class="member">
-            <h3>Alana Cristina Sosa Juárez</h3>
-            <p>Content Manager</p>
-        </div>
-    </div>
-
-    <div class="contact-info">
-        <p>📞 998 828 8041</p>
-        <p>📷 maral.mktagency</p>
-        <p>✉️ maral.mktagency@gmail.com</p>
-    </div>
-
+<div class="contact-info">
+<p>📞 998 828 8041</p>
+<p>📷 maral.mktagency</p>
+<p>✉️ maral.mktagency@gmail.com</p>
+</div>
+</div>
 </section>
 
 <div class="whatsapp" onclick="contactar()">💬</div>
 
 <script>
 window.addEventListener("scroll",function(){
-    const nav=document.getElementById("navbar");
-    if(window.scrollY>50){
-        nav.classList.add("scrolled");
-    }else{
-        nav.classList.remove("scrolled");
-    }
+const nav=document.getElementById("navbar");
+if(window.scrollY>50){
+nav.classList.add("scrolled");
+}else{
+nav.classList.remove("scrolled");
+}
 });
 
 function contactar(){
-window.open("https://wa.me/529982003024");
+const mensaje = encodeURIComponent(`Hola, bienvenido/a a MARAL 🤍  
+Gracias por escribirnos.  
+Si necesitas algún servicio específico o deseas agendar una reunión ✨  
+Cuéntanos, ¿cómo podemos apoyarte?`);
+
+window.open(`https://wa.me/529982003024?text=${mensaje}`);
 }
 
 function go(id){
