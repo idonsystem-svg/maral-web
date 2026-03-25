@@ -24,7 +24,7 @@ nav{
     display:flex;
     justify-content:space-between;
     z-index:1000;
-    background:rgba(255,255,255,0.6);
+    background:rgba(94,18,20,0.6);
     backdrop-filter:blur(12px);
 }
 
@@ -65,13 +65,42 @@ nav li{
     position:absolute;
     width:100%;
     height:100%;
-    background:rgba(94,18,20,0.7);
+    background:rgba(94,18,20,0.55);
 }
 
+/* TEXTO HERO MEJORADO */
 .hero h1{
     font-family:'Playfair Display', serif;
-    font-size:80px;
-    letter-spacing:6px;
+    font-size:95px;
+    letter-spacing:8px;
+    color:#EADDCB;
+    text-shadow:0 10px 40px rgba(0,0,0,0.6);
+
+    opacity:0;
+    transform:scale(1.2);
+    animation:fadeZoom 1.8s ease forwards;
+}
+
+.hero p{
+    margin-top:20px;
+    letter-spacing:4px;
+    font-size:14px;
+    color:#ffffff;
+    opacity:0;
+
+    animation:fadeUp 2s ease forwards;
+    animation-delay:0.6s;
+}
+
+/* ANIMACIONES */
+@keyframes fadeZoom{
+    0%{opacity:0; transform:scale(1.2);}
+    100%{opacity:1; transform:scale(1);}
+}
+
+@keyframes fadeUp{
+    0%{opacity:0; transform:translateY(30px);}
+    100%{opacity:0.95; transform:translateY(0);}
 }
 
 /* SECCIONES */
@@ -141,20 +170,9 @@ section{
 .portfolio img{
     width:100%;
     border-radius:20px;
-    transition:0.4s;
 }
 
-/* TEAM */
-.team{
-    display:flex;
-    justify-content:center;
-    gap:80px;
-    flex-wrap:wrap;
-}
-
-/* ===================== */
 /* PAQUETES */
-/* ===================== */
 .pricing{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -167,7 +185,6 @@ section{
     padding:40px;
     border-radius:20px;
     border:1px solid rgba(94,18,20,0.1);
-    text-align:center;
     transition:0.4s;
 }
 
@@ -182,16 +199,20 @@ section{
 
 .price{
     font-size:24px;
-    margin:10px 0;
     color:#D798A3;
 }
 
-.plan ul{
-    list-style:none;
+/* TEAM */
+.team{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex-wrap:wrap;
 }
 
-.plan li{
-    margin:10px 0;
+.contact-info{
+    margin-top:30px;
+    line-height:2;
 }
 
 /* BOTÓN */
@@ -214,7 +235,6 @@ button{
     color:white;
     padding:15px;
     border-radius:50%;
-    cursor:pointer;
 }
 </style>
 </head>
@@ -225,7 +245,6 @@ button{
 <img src="logo.png">
 <ul>
 <li onclick="go('inicio')">INICIO</li>
-<li onclick="go('marca')">MARCA</li>
 <li onclick="go('servicios')">SERVICIOS</li>
 <li onclick="go('portafolio')">PORTAFOLIO</li>
 <li onclick="go('paquetes')">PAQUETES</li>
@@ -233,19 +252,16 @@ button{
 </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="inicio">
 <video autoplay muted loop>
 <source src="https://cdn.coverr.co/videos/coverr-working-on-laptop-5175/1080p.mp4">
 </video>
 <div class="hero-overlay"></div>
-<h1>MARAL</h1>
-</section>
 
-<section id="marca">
-<div class="container glass">
-<h2 class="title">Nuestra esencia</h2>
-<p class="story">Maral nace de la unión de creatividad, emoción y conexión humana.</p>
-<p class="story">Creamos marcas que se sienten.</p>
+<div>
+<h1>MARAL</h1>
+<p>CREAMOS IDEAS EN ESENCIA</p>
 </div>
 </section>
 
@@ -271,7 +287,6 @@ button{
 </div>
 </section>
 
-<!-- PAQUETES -->
 <section id="paquetes">
 <div class="container">
 <h2 class="title">Paquetes</h2>
@@ -281,34 +296,18 @@ button{
 <div class="plan">
 <h3>Esencial</h3>
 <p class="price">$3,000 MXN</p>
-<ul>
-<li>Contenido básico</li>
-<li>Publicaciones</li>
-<li>Gestión</li>
-</ul>
 <button onclick="contactar()">Solicitar</button>
 </div>
 
 <div class="plan featured">
 <h3>Profesional</h3>
 <p class="price">$5,500 MXN</p>
-<ul>
-<li>Estrategia completa</li>
-<li>Contenido creativo</li>
-<li>Gestión redes</li>
-<li>Análisis</li>
-</ul>
 <button onclick="contactar()">Solicitar</button>
 </div>
 
 <div class="plan">
 <h3>Premium</h3>
 <p class="price">$9,000 MXN</p>
-<ul>
-<li>Branding completo</li>
-<li>Publicidad</li>
-<li>Asesoría</li>
-</ul>
 <button onclick="contactar()">Solicitar</button>
 </div>
 
@@ -322,23 +321,21 @@ button{
 <h2 class="title">Nuestro equipo</h2>
 
 <div class="team">
+<div>
+<h3>María Fernanda Torres Barceinas</h3>
+<p>Community Manager</p>
+</div>
 
-    <div>
-        <h3>María Fernanda Torres Barceinas</h3>
-        <p>Community Manager</p>
-    </div>
-
-    <div>
-        <h3>Alana Cristina Sosa Juárez</h3>
-        <p>Content Manager</p>
-    </div>
-
+<div>
+<h3>Alana Cristina Sosa Juárez</h3>
+<p>Content Manager</p>
+</div>
 </div>
 
 <div class="contact-info">
-    <p>📞 998 828 8041</p>
-    <p>📷 maral.mktagency</p>
-    <p>✉️ maral.mktagency@gmail.com</p>
+<p>📞 998 828 8041</p>
+<p>📷 maral.mktagency</p>
+<p>✉️ maral.mktagency@gmail.com</p>
 </div>
 
 <button onclick="contactar()">Trabajemos juntas</button>
@@ -349,16 +346,6 @@ button{
 <div class="whatsapp" onclick="contactar()">💬</div>
 
 <script>
-const elements=document.querySelectorAll('.story');
-
-window.addEventListener('scroll',()=>{
-elements.forEach(el=>{
-if(el.getBoundingClientRect().top<window.innerHeight-100){
-el.classList.add('visible');
-}
-});
-});
-
 function contactar(){
 const mensaje=encodeURIComponent(`Hola, bienvenido/a a MARAL 🤍
 Gracias por escribirnos ✨
