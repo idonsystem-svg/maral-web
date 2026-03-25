@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>MARAL Agency</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Inter', sans-serif;
+    background:#EADDCB;
+    color:#5E1214;
+    overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    z-index:1000;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(12px);
+}
+
+nav img{width:120px;}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav li{
+    cursor:pointer;
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero video{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.hero-overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(94,18,20,0.7);
+}
+
+.hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:80px;
+    letter-spacing:6px;
+}
+
+/* SECCIONES */
+section{
+    padding:140px 20px;
+    text-align:center;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.title{
+    font-family:'Playfair Display', serif;
+    font-size:34px;
+    margin-bottom:40px;
+}
+
+/* GLASS */
+.glass{
+    background:rgba(255,255,255,0.4);
+    backdrop-filter:blur(20px);
+    padding:50px;
+    border-radius:20px;
+}
+
+/* STORY */
+.story{
+    font-size:17px;
+    line-height:2;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.story.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* SERVICIOS */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.service{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.service:hover{
+    transform:translateY(-10px);
+}
+
+/* PORTAFOLIO */
+.portfolio{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.portfolio img{
+    width:100%;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+/* TEAM */
+.team{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex-wrap:wrap;
+}
+
+/* ===================== */
+/* PAQUETES */
+/* ===================== */
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.plan{
+    background:rgba(255,255,255,0.4);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:20px;
+    border:1px solid rgba(94,18,20,0.1);
+    text-align:center;
+    transition:0.4s;
+}
+
+.plan:hover{
+    transform:translateY(-10px);
+}
+
+.featured{
+    border:2px solid #D798A3;
+    transform:scale(1.05);
+}
+
+.price{
+    font-size:24px;
+    margin:10px 0;
+    color:#D798A3;
+}
+
+.plan ul{
+    list-style:none;
+}
+
+.plan li{
+    margin:10px 0;
+}
+
+/* BOTÓN */
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    background:#5E1214;
+    color:white;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#5E1214;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<img src="logo.png">
+<ul>
+<li onclick="go('inicio')">INICIO</li>
+<li onclick="go('marca')">MARCA</li>
+<li onclick="go('servicios')">SERVICIOS</li>
+<li onclick="go('portafolio')">PORTAFOLIO</li>
+<li onclick="go('paquetes')">PAQUETES</li>
+<li onclick="go('equipo')">EQUIPO</li>
+</ul>
+</nav>
+
+<section class="hero" id="inicio">
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-working-on-laptop-5175/1080p.mp4">
+</video>
+<div class="hero-overlay"></div>
+<h1>MARAL</h1>
+</section>
+
+<section id="marca">
+<div class="container glass">
+<h2 class="title">Nuestra esencia</h2>
+<p class="story">Maral nace de la unión de creatividad, emoción y conexión humana.</p>
+<p class="story">Creamos marcas que se sienten.</p>
+</div>
+</section>
+
+<section id="servicios">
+<div class="container">
+<h2 class="title">Servicios</h2>
+<div class="services">
+<div class="service">Branding</div>
+<div class="service">Marketing Digital</div>
+<div class="service">Contenido Creativo</div>
+</div>
+</div>
+</section>
+
+<section id="portafolio">
+<div class="container">
+<h2 class="title">Portafolio</h2>
+<div class="portfolio">
+<img src="https://picsum.photos/400?1">
+<img src="https://picsum.photos/400?2">
+<img src="https://picsum.photos/400?3">
+</div>
+</div>
+</section>
+
+<!-- PAQUETES -->
+<section id="paquetes">
+<div class="container">
+<h2 class="title">Paquetes</h2>
+
+<div class="pricing">
+
+<div class="plan">
+<h3>Esencial</h3>
+<p class="price">$3,000 MXN</p>
+<ul>
+<li>Contenido básico</li>
+<li>Publicaciones</li>
+<li>Gestión</li>
+</ul>
+<button onclick="contactar()">Solicitar</button>
+</div>
+
+<div class="plan featured">
+<h3>Profesional</h3>
+<p class="price">$5,500 MXN</p>
+<ul>
+<li>Estrategia completa</li>
+<li>Contenido creativo</li>
+<li>Gestión redes</li>
+<li>Análisis</li>
+</ul>
+<button onclick="contactar()">Solicitar</button>
+</div>
+
+<div class="plan">
+<h3>Premium</h3>
+<p class="price">$9,000 MXN</p>
+<ul>
+<li>Branding completo</li>
+<li>Publicidad</li>
+<li>Asesoría</li>
+</ul>
+<button onclick="contactar()">Solicitar</button>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="equipo">
+<div class="container">
+
+<h2 class="title">Nuestro equipo</h2>
+
+<div class="team">
+
+    <div>
+        <h3>María Fernanda Torres Barceinas</h3>
+        <p>Community Manager</p>
+    </div>
+
+    <div>
+        <h3>Alana Cristina Sosa Juárez</h3>
+        <p>Content Manager</p>
+    </div>
+
+</div>
+
+<div class="contact-info">
+    <p>📞 998 828 8041</p>
+    <p>📷 maral.mktagency</p>
+    <p>✉️ maral.mktagency@gmail.com</p>
+</div>
+
+<button onclick="contactar()">Trabajemos juntas</button>
+
+</div>
+</section>
+
+<div class="whatsapp" onclick="contactar()">💬</div>
+
+<script>
+const elements=document.querySelectorAll('.story');
+
+window.addEventListener('scroll',()=>{
+elements.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add('visible');
+}
+});
+});
+
+function contactar(){
+const mensaje=encodeURIComponent(`Hola, bienvenido/a a MARAL 🤍
+Gracias por escribirnos ✨
+¿Cómo podemos apoyarte?`);
+window.open(`https://wa.me/529982003024?text=${mensaje}`);
+}
+
+function go(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
